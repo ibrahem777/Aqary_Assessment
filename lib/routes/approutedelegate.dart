@@ -2,6 +2,7 @@ import 'package:aqary_assesment/pages/bouncing_list.dart';
 import 'package:aqary_assesment/pages/custom_paint.dart';
 import 'package:aqary_assesment/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../enums.dart';
 
 import '../notifiers/page_notifier.dart';
@@ -22,8 +23,8 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
     return Navigator(
         key: navigatorKey,
         pages: [
-          if (notifier.isUnknown)  MaterialPage(child: Container()),
-          if (!notifier.isUnknown)  MaterialPage(child: Container()),
+          if (notifier.isUnknown)  MaterialPage(child: Container(child: Text('${notifier.isUnknown}'),)),
+          if (!notifier.isUnknown)  MaterialPage(child: Container(child: Text('${notifier.isUnknown} ${notifier.pageName}'),)),
           if (notifier.pageName == PageName.home)
              MaterialPage(child: HomePage()),
           if (notifier.pageName == PageName.builder)
@@ -37,7 +38,10 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
           if (notifier.pageName == PageName.api)
             MaterialPage(child: Container()),
         ],
+
         onPopPage: (route, result) {
+          Provider.of<PageNotifier>(context,listen: false).changePage(page: PageName.home, unknown: false);
+
           print(route.settings.name);
           return route.didPop(result);
         });

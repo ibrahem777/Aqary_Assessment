@@ -69,7 +69,7 @@ String? _unknownPath;
       return _getRouteInformation(configuration.pageName!.name);
     }
 
-    return  RouteInformation(uri: Uri.parse("/"));
+    return  RouteInformation(location: "/");
   }
   RouteInformation _getRouteInformation(String page) {
     return RouteInformation(location: "/$page");
