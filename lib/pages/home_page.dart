@@ -35,6 +35,12 @@ class HomePage extends StatelessWidget {
             },
               child: Text('Bouncing List '),),
           ),
+          Center(
+            child: ElevatedButton(onPressed: (){
+              provider.changePage(page: PageName.bloc, unknown: false);
+            },
+              child: Text('Bloc '),),
+          ),
 
         ],
       ),

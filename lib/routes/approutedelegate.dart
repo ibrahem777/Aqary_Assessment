@@ -1,3 +1,4 @@
+import 'package:aqary_assesment/pages/bloc_page.dart';
 import 'package:aqary_assesment/pages/bouncing_list.dart';
 import 'package:aqary_assesment/pages/custom_paint.dart';
 import 'package:aqary_assesment/pages/home_page.dart';
@@ -30,7 +31,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
           if (notifier.pageName == PageName.builder)
              MaterialPage(child: BuilderPattern()),
           if (notifier.pageName == PageName.bloc)
-             MaterialPage(child: Container()),
+             MaterialPage(child: BlocPage()),
           if (notifier.pageName == PageName.custompaint)
              MaterialPage(child: CustomPaintPage()),
           if (notifier.pageName == PageName.bouncinglist)
